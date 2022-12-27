@@ -74,20 +74,10 @@
             </div>
 
             <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
-                <div class="datatable-header">
-                    <div id="DataTables_Table_0_filter" class="dataTables_filter">
-                        <label>
-                            <span>Filter:</span>
-                            <input type="search" class="searchbar" placeholder="Type to filter..." aria-controls="DataTables_Table_0">
-                        </label>
-                    </div>
-                    <div class="dataTables_length" id="DataTables_Table_0_length">
-                        <label>
-                            <span>Show:</span>
-                            <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="select2-hidden-accessible" tabindex="-1" aria-hidden="true"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: auto;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-DataTables_Table_0_length-oj-container"><span class="select2-selection__rendered" id="select2-DataTables_Table_0_length-oj-container" title="10">10</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
-                        </label>
-                    </div>
-                </div><div class="datatable-scroll">
+
+                <div class="row" style="display:flex;justify-content:space-between;align-items:center;"><h1>Courses</h1>
+                    <button class="btn btn-primary">Add Course</button>
+                </div>
                     <table class="table datatable-basic dataTable no-footer dhuzz" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
                         <thead>
                             <tr role="row">
@@ -95,6 +85,7 @@
                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Last Name: activate to sort column ascending">Course Code</th>
                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Job Title: activate to sort column ascending">Course Name</th>
                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="DOB: activate to sort column ascending">Course Short Name</th>
+                                <th>Actions</th>
                         </thead>
                         <tbody>
                             @foreach (var obj in Model)
@@ -104,11 +95,11 @@
                                     <td role='row' class="odd">@obj.CourseCode</td>
                                     <td role='row' class="even">@obj.CourseName</td>
                                     <td role='row' class="odd">@obj.CourseShortName</td>
+                                    <td role='row' class="odd">@Html.ActionLink("Edit","Edit","Course",new { @class = "btn btn-sm btn-primary" }) | @Html.ActionLink("Delete","Delete","Course",new { @class = "btn btn-sm btn-danger" })</td>
                                 </tr>
                             }
                         </tbody>
                     </table>
-                </div><div class="datatable-footer"><div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">Showing 1 to 10 of 15 entries</div><div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate"><a class="paginate_button previous disabled" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0" id="DataTables_Table_0_previous">←</a><span><a class="paginate_button current" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0">1</a><a class="paginate_button " aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0">2</a></span><a class="paginate_button next" aria-controls="DataTables_Table_0" data-dt-idx="3" tabindex="0" id="DataTables_Table_0_next">→</a></div></div>
             </div>
         </div>
         <!-- /basic datatable -->

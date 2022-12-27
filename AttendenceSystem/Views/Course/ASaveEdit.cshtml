@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "ASaveEdit";
+}
+<div class="content-wrapper">
+    <h2>Add New Course</h2>
+
+    @using (Html.BeginForm("Save", "Course", FormMethod.Post))
+    {
+        <div class="m-20">
+            <div class="form-group">
+                <label for="CourseCode">
+                    CourseCode:
+                </label>
+                <input type="text" class="form-control" name="CourseCode" />
+            </div><div class="form-group">
+                <label for="CourseName">
+                    CourseName:
+                </label>
+                <input type="text" class="form-control" name="CourseName" />
+            </div><div class="form-group">
+                <label for="CourseShortName">
+                    CourseShortName:
+                </label>
+                <input type="text" class="form-control" name="CourseShortName" />
+            </div>
+            <div class="form-control">
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+        </div>
+    }
+
+</div>

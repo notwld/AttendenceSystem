@@ -15,5 +15,21 @@ namespace AttendenceSystem.Controllers
         {
             return View(new Course().Course_GetAll());
         }
+    public ActionResult ASaveEdit()
+    {
+        return View();
     }
+        public ActionResult Save(Course course)
+        {
+            if(new Course().Course_Save(course) > 0)
+            {
+                return RedirectToAction("Index", "Course");
+            }
+            else
+            {
+                return View();
+            }
+        }
+    }
+
 }

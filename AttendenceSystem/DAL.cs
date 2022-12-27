@@ -6,7 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Web;
 
-namespace WE_Lab6
+namespace AttendenceSystem
 {
     public class DAL
     {

@@ -9,14 +9,19 @@ namespace AttendenceSystem.Models
 {
     public class Course
     {
-        public DataTable Course_GetAll()
-        {
-            SqlCommand sc = new SqlCommand("Select * from tbl_course", ConnectionString.MySqlConnection());
-            sc.CommandType = CommandType.Text;
-            DataTable dt = new DataTable();
-            SqlDataAdapter sda = new SqlDataAdapter(sc);
-            sda.Fill(dt);
-            return dt;
-        }
+
+            public int CourseId { get; set; }
+            public string CourseCode { get; set; }
+            public string CourseName { get; set; }
+            public string CourseShortName { get; set; }
+
+            public List<Course> Course_GetAll()
+            {
+                List<Course> courses = new DAL().ExecuteforReport<Course>("Course_GetAll()", ConnectionString.MySqlConnection());
+                return courses;
+            }
+
+        
+
     }
 }

@@ -13,8 +13,7 @@ namespace AttendenceSystem.Controllers
         // GET: Course
         public ActionResult Index()
         {
-            DataTable dt = new Course().Course_GetAll();
-            return View(dt);
+            return View(new Course().Course_GetAll());
         }
     }
 }

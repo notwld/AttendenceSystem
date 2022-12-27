@@ -1,0 +1,934 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@using System.Data
+@Model DataTable
+
+<div class="content-wrapper">
+
+    <!-- Page header -->
+    <div class="page-header page-header-default">
+        <div class="page-header-content">
+            <div class="page-title">
+                <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">Datatables</span> - Basic</h4>
+                <a class="heading-elements-toggle"><i class="icon-more"></i></a>
+            </div>
+
+            <div class="heading-elements">
+                <div class="heading-btn-group">
+                    <a href="#" class="btn btn-link btn-float has-text"><i class="icon-bars-alt text-primary"></i><span>Statistics</span></a>
+                    <a href="#" class="btn btn-link btn-float has-text"><i class="icon-calculator text-primary"></i> <span>Invoices</span></a>
+                    <a href="#" class="btn btn-link btn-float has-text"><i class="icon-calendar5 text-primary"></i> <span>Schedule</span></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="breadcrumb-line">
+            <a class="breadcrumb-elements-toggle"><i class="icon-menu-open"></i></a>
+            <ul class="breadcrumb">
+                <li><a href="index.html"><i class="icon-home2 position-left"></i> Home</a></li>
+                <li><a href="datatable_basic.html">Datatables</a></li>
+                <li class="active">Basic</li>
+            </ul>
+
+            <ul class="breadcrumb-elements">
+                <li><a href="#"><i class="icon-comment-discussion position-left"></i> Support</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="icon-gear position-left"></i>
+                        Settings
+                        <span class="caret"></span>
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="#"><i class="icon-user-lock"></i> Account security</a></li>
+                        <li><a href="#"><i class="icon-statistics"></i> Analytics</a></li>
+                        <li><a href="#"><i class="icon-accessibility"></i> Accessibility</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#"><i class="icon-gear"></i> All settings</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- /page header -->
+    <!-- Content area -->
+    <div class="content">
+
+        <!-- Basic datatable -->
+        <div class="panel panel-flat">
+            <div class="panel-heading">
+                <h5 class="panel-title">Basic datatable<a class="heading-elements-toggle"><i class="icon-more"></i></a></h5>
+                <div class="heading-elements">
+                    <ul class="icons-list">
+                        <li><a data-action="collapse"></a></li>
+                        <li><a data-action="reload"></a></li>
+                        <li><a data-action="close"></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="panel-body">
+                The <code>DataTables</code> is a highly flexible tool, based upon the foundations of progressive enhancement, and will add advanced interaction controls to any HTML table. DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function. Searching, ordering, paging etc goodness will be immediately added to the table, as shown in this example. <strong>Datatables support all available table styling.</strong>
+            </div>
+
+            <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+                <div class="datatable-header">
+                    <div id="DataTables_Table_0_filter" class="dataTables_filter">
+                        <label>
+                            <span>Filter:</span>
+                            <input type="search" class="searchbar" placeholder="Type to filter..." aria-controls="DataTables_Table_0">
+                        </label>
+                    </div>
+                    <div class="dataTables_length" id="DataTables_Table_0_length">
+                        <label>
+                            <span>Show:</span>
+                            <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="select2-hidden-accessible" tabindex="-1" aria-hidden="true"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: auto;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-DataTables_Table_0_length-oj-container"><span class="select2-selection__rendered" id="select2-DataTables_Table_0_length-oj-container" title="10">10</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                        </label>
+                    </div>
+                </div><div class="datatable-scroll">
+                    <table class="table datatable-basic dataTable no-footer dhuzz" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+                        <thead>
+                            <tr role="row">
+                                <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="First Name: activate to sort column descending">CourseId</th>
+                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Last Name: activate to sort column ascending">Course Code</th>
+                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Job Title: activate to sort column ascending">Course Name</th>
+                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="DOB: activate to sort column ascending">Course Short Name</th>
+                        </thead>
+                        <tbody>
+                            @foreach (DataRow i in Model.Rows)
+                            {
+                                <tr>
+                                    <td role='row' class="even">@i[0]</td>
+                                    <td role='row' class="odd">@i[1]</td>
+                                    <td role='row' class="even">@i[2]</td>
+                                    <td role='row' class="odd">@i[3]</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div><div class="datatable-footer"><div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">Showing 1 to 10 of 15 entries</div><div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate"><a class="paginate_button previous disabled" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0" id="DataTables_Table_0_previous">←</a><span><a class="paginate_button current" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0">1</a><a class="paginate_button " aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0">2</a></span><a class="paginate_button next" aria-controls="DataTables_Table_0" data-dt-idx="3" tabindex="0" id="DataTables_Table_0_next">→</a></div></div>
+            </div>
+        </div>
+        <!-- /basic datatable -->
+        <!-- Pagination types -->
+        <div class="panel panel-flat">
+            <div class="panel-heading">
+                <h5 class="panel-title">Pagination types<a class="heading-elements-toggle"><i class="icon-more"></i></a></h5>
+                <div class="heading-elements">
+                    <ul class="icons-list">
+                        <li><a data-action="collapse"></a></li>
+                        <li><a data-action="reload"></a></li>
+                        <li><a data-action="close"></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="panel-body">
+                The default page control (forward and backward buttons with up to 7 page numbers in-between) is fine for most situations, but in some cases you may wish to customise the options presented to the end user. This is done through DataTables' extensible pagination mechanism, the <code>pagingType</code> option. Supported pagination types are: <code>simple</code>, <code>simple_numbers</code>, <code>full</code> and <code>full_numbers</code>. This example shows <code>simple</code> pagination type.
+            </div>
+
+            <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper no-footer">
+                <div class="datatable-header"><div id="DataTables_Table_1_filter" class="dataTables_filter"><label><span>Filter:</span> <input type="search" class="" placeholder="Type to filter..." aria-controls="DataTables_Table_1"></label></div><div class="dataTables_length" id="DataTables_Table_1_length"><label><span>Show:</span> <select name="DataTables_Table_1_length" aria-controls="DataTables_Table_1" class="select2-hidden-accessible" tabindex="-1" aria-hidden="true"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: auto;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-DataTables_Table_1_length-sk-container"><span class="select2-selection__rendered" id="select2-DataTables_Table_1_length-sk-container" title="10">10</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span></label></div></div><div class="datatable-scroll">
+                    <table class="table datatable-pagination dataTable no-footer" id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info">
+                        <thead>
+                            <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="First Name: activate to sort column descending">First Name</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Last Name: activate to sort column ascending">Last Name</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Job Title: activate to sort column ascending">Job Title</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="DOB: activate to sort column ascending">DOB</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending">Status</th><th class="text-center sorting_disabled" rowspan="1" colspan="1" aria-label="Actions" style="width: 100px;">Actions</th></tr>
+                        </thead>
+                        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <tr role="row" class="odd">
+                                <td class="sorting_1">Aura</td>
+                                <td>Hard</td>
+                                <td>Business Services Sales Representative</td>
+                                <td>19 Apr 1969</td>
+                                <td><span class="label label-danger">Suspended</span></td>
+                                <td class="text-center">
+                                    <ul class="icons-list">
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                <i class="icon-menu9"></i>
+                                            </a>
+
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <li><a href="#"><i class="icon-file-pdf"></i> Export to .pdf</a></li>
+                                                <li><a href="#"><i class="icon-file-excel"></i> Export to .csv</a></li>
+                                                <li><a href="#"><i class="icon-file-word"></i> Export to .doc</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr role="row" class="even">
+                                <td class="sorting_1">Chantal</td>
+                                <td><a href="#">Nailor</a></td>
+                                <td>Technical Services Librarian</td>
+                                <td>10 Jan 1980</td>
+                                <td><span class="label label-default">Inactive</span></td>
+                                <td class="text-center">
+                                    <ul class="icons-list">
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                <i class="icon-menu9"></i>
+                                            </a>
+
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <li><a href="#"><i class="icon-file-pdf"></i> Export to .pdf</a></li>
+                                                <li><a href="#"><i class="icon-file-excel"></i> Export to .csv</a></li>
+                                                <li><a href="#"><i class="icon-file-word"></i> Export to .doc</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr role="row" class="odd">
+                                <td class="sorting_1">Cicely</td>
+                                <td>Sigler</td>
+                                <td><a href="#">Senior Research Officer</a></td>
+                                <td>15 Mar 1960</td>
+                                <td><span class="label label-info">Pending</span></td>
+                                <td class="text-center">
+                                    <ul class="icons-list">
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                <i class="icon-menu9"></i>
+                                            </a>
+
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <li><a href="#"><i class="icon-file-pdf"></i> Export to .pdf</a></li>
+                                                <li><a href="#"><i class="icon-file-excel"></i> Export to .csv</a></li>
+                                                <li><a href="#"><i class="icon-file-word"></i> Export to .doc</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr role="row" class="even">
+                                <td class="sorting_1">Coy</td>
+                                <td>Wollard</td>
+                                <td>Customer Service Operator</td>
+                                <td>12 Oct 1982</td>
+                                <td><span class="label label-success">Active</span></td>
+                                <td class="text-center">
+                                    <ul class="icons-list">
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                <i class="icon-menu9"></i>
+                                            </a>
+
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <li><a href="#"><i class="icon-file-pdf"></i> Export to .pdf</a></li>
+                                                <li><a href="#"><i class="icon-file-excel"></i> Export to .csv</a></li>
+                                                <li><a href="#"><i class="icon-file-word"></i> Export to .doc</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr role="row" class="odd">
+                                <td class="sorting_1">Delma</td>
+                                <td>Bonds</td>
+                                <td>Lead Brand Manager</td>
+                                <td>21 Dec 1968</td>
+                                <td><span class="label label-info">Pending</span></td>
+                                <td class="text-center">
+                                    <ul class="icons-list">
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                <i class="icon-menu9"></i>
+                                            </a>
+
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <li><a href="#"><i class="icon-file-pdf"></i> Export to .pdf</a></li>
+                                                <li><a href="#"><i class="icon-file-excel"></i> Export to .csv</a></li>
+                                                <li><a href="#"><i class="icon-file-word"></i> Export to .doc</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr role="row" class="even">
+                                <td class="sorting_1">Jackelyn</td>
+                                <td>Weible</td>
+                                <td><a href="#">Airline Transport Pilot</a></td>
+                                <td>3 Oct 1981</td>
+                                <td><span class="label label-default">Inactive</span></td>
+                                <td class="text-center">
+                                    <ul class="icons-list">
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                <i class="icon-menu9"></i>
+                                            </a>
+
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <li><a href="#"><i class="icon-file-pdf"></i> Export to .pdf</a></li>
+                                                <li><a href="#"><i class="icon-file-excel"></i> Export to .csv</a></li>
+                                                <li><a href="#"><i class="icon-file-word"></i> Export to .doc</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr role="row" class="odd">
+                                <td class="sorting_1">Kennedy</td>
+                                <td>Haley</td>
+                                <td>Senior Marketing Designer</td>
+                                <td>18 Dec 1960</td>
+                                <td><span class="label label-success">Active</span></td>
+                                <td class="text-center">
+                                    <ul class="icons-list">
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                <i class="icon-menu9"></i>
+                                            </a>
+
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <li><a href="#"><i class="icon-file-pdf"></i> Export to .pdf</a></li>
+                                                <li><a href="#"><i class="icon-file-excel"></i> Export to .csv</a></li>
+                                                <li><a href="#"><i class="icon-file-word"></i> Export to .doc</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr role="row" class="even">
+                                <td class="sorting_1">Lizzee</td>
+                                <td><a href="#">Goodlow</a></td>
+                                <td>Technical Services Librarian</td>
+                                <td>1 Nov 1961</td>
+                                <td><span class="label label-danger">Suspended</span></td>
+                                <td class="text-center">
+                                    <ul class="icons-list">
+                                        <li class="dropdown dropup">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                <i class="icon-menu9"></i>
+                                            </a>
+
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <li><a href="#"><i class="icon-file-pdf"></i> Export to .pdf</a></li>
+                                                <li><a href="#"><i class="icon-file-excel"></i> Export to .csv</a></li>
+                                                <li><a href="#"><i class="icon-file-word"></i> Export to .doc</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr role="row" class="odd">
+                                <td class="sorting_1">Marth</td>
+                                <td><a href="#">Enright</a></td>
+                                <td>Traffic Court Referee</td>
+                                <td>22 Jun 1972</td>
+                                <td><span class="label label-success">Active</span></td>
+                                <td class="text-center">
+                                    <ul class="icons-list">
+                                        <li class="dropdown dropup">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                <i class="icon-menu9"></i>
+                                            </a>
+
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <li><a href="#"><i class="icon-file-pdf"></i> Export to .pdf</a></li>
+                                                <li><a href="#"><i class="icon-file-excel"></i> Export to .csv</a></li>
+                                                <li><a href="#"><i class="icon-file-word"></i> Export to .doc</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr role="row" class="even">
+                                <td class="sorting_1">Maxine</td>
+                                <td><a href="#">Woldt</a></td>
+                                <td><a href="#">Business Services Sales Representative</a></td>
+                                <td>17 Oct 1987</td>
+                                <td><span class="label label-info">Pending</span></td>
+                                <td class="text-center">
+                                    <ul class="icons-list">
+                                        <li class="dropdown dropup">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                <i class="icon-menu9"></i>
+                                            </a>
+
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <li><a href="#"><i class="icon-file-pdf"></i> Export to .pdf</a></li>
+                                                <li><a href="#"><i class="icon-file-excel"></i> Export to .csv</a></li>
+                                                <li><a href="#"><i class="icon-file-word"></i> Export to .doc</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div><div class="datatable-footer"><div class="dataTables_info" id="DataTables_Table_1_info" role="status" aria-live="polite">Showing 1 to 10 of 15 entries</div><div class="dataTables_paginate paging_simple" id="DataTables_Table_1_paginate"><a class="paginate_button previous disabled" aria-controls="DataTables_Table_1" data-dt-idx="0" tabindex="0" id="DataTables_Table_1_previous">← Prev</a><a class="paginate_button next" aria-controls="DataTables_Table_1" data-dt-idx="1" tabindex="0" id="DataTables_Table_1_next">Next →</a></div></div>
+            </div>
+        </div>
+        <!-- /pagination types -->
+        <!-- State saving -->
+        <div class="panel panel-flat">
+            <div class="panel-heading">
+                <h5 class="panel-title">State saving<a class="heading-elements-toggle"><i class="icon-more"></i></a></h5>
+                <div class="heading-elements">
+                    <ul class="icons-list">
+                        <li><a data-action="collapse"></a></li>
+                        <li><a data-action="reload"></a></li>
+                        <li><a data-action="close"></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="panel-body">
+                DataTables has the option of being able to <code>save the state</code> of a table: its paging position, ordering state etc., so that is can be restored when the user reloads a page, or comes back to the page after visiting a sub-page. This state saving ability is enabled by the <code>stateSave</code> option. The <code>duration</code> for which the saved state is valid can be set using the <code>stateDuration</code> initialisation parameter (2 hours by default).
+            </div>
+
+            <div id="DataTables_Table_2_wrapper" class="dataTables_wrapper no-footer">
+                <div class="datatable-header"><div id="DataTables_Table_2_filter" class="dataTables_filter"><label><span>Filter:</span> <input type="search" class="" placeholder="Type to filter..." aria-controls="DataTables_Table_2"></label></div><div class="dataTables_length" id="DataTables_Table_2_length"><label><span>Show:</span> <select name="DataTables_Table_2_length" aria-controls="DataTables_Table_2" class="select2-hidden-accessible" tabindex="-1" aria-hidden="true"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: auto;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-DataTables_Table_2_length-i1-container"><span class="select2-selection__rendered" id="select2-DataTables_Table_2_length-i1-container" title="10">10</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span></label></div></div><div class="datatable-scroll">
+                    <table class="table datatable-save-state dataTable no-footer" id="DataTables_Table_2" role="grid" aria-describedby="DataTables_Table_2_info">
+                        <thead>
+                            <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="First Name: activate to sort column descending">First Name</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_2" rowspan="1" colspan="1" aria-label="Last Name: activate to sort column ascending">Last Name</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_2" rowspan="1" colspan="1" aria-label="Job Title: activate to sort column ascending">Job Title</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_2" rowspan="1" colspan="1" aria-label="DOB: activate to sort column ascending">DOB</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_2" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending">Status</th><th class="text-center sorting_disabled" rowspan="1" colspan="1" aria-label="Actions" style="width: 100px;">Actions</th></tr>
+                        </thead>
+                        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <tr role="row" class="odd">
+                                <td class="sorting_1">Aura</td>
+                                <td>Hard</td>
+                                <td>Business Services Sales Representative</td>
+                                <td>19 Apr 1969</td>
+                                <td><span class="label label-danger">Suspended</span></td>
+                                <td class="text-center">
+                                    <ul class="icons-list">
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                <i class="icon-menu9"></i>
+                                            </a>
+
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <li><a href="#"><i class="icon-file-pdf"></i> Export to .pdf</a></li>
+                                                <li><a href="#"><i class="icon-file-excel"></i> Export to .csv</a></li>
+                                                <li><a href="#"><i class="icon-file-word"></i> Export to .doc</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr role="row" class="even">
+                                <td class="sorting_1">Chantal</td>
+                                <td><a href="#">Nailor</a></td>
+                                <td>Technical Services Librarian</td>
+                                <td>10 Jan 1980</td>
+                                <td><span class="label label-default">Inactive</span></td>
+                                <td class="text-center">
+                                    <ul class="icons-list">
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                <i class="icon-menu9"></i>
+                                            </a>
+
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <li><a href="#"><i class="icon-file-pdf"></i> Export to .pdf</a></li>
+                                                <li><a href="#"><i class="icon-file-excel"></i> Export to .csv</a></li>
+                                                <li><a href="#"><i class="icon-file-word"></i> Export to .doc</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr role="row" class="odd">
+                                <td class="sorting_1">Cicely</td>
+                                <td>Sigler</td>
+                                <td><a href="#">Senior Research Officer</a></td>
+                                <td>15 Mar 1960</td>
+                                <td><span class="label label-info">Pending</span></td>
+                                <td class="text-center">
+                                    <ul class="icons-list">
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                <i class="icon-menu9"></i>
+                                            </a>
+
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <li><a href="#"><i class="icon-file-pdf"></i> Export to .pdf</a></li>
+                                                <li><a href="#"><i class="icon-file-excel"></i> Export to .csv</a></li>
+                                                <li><a href="#"><i class="icon-file-word"></i> Export to .doc</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr role="row" class="even">
+                                <td class="sorting_1">Coy</td>
+                                <td>Wollard</td>
+                                <td>Customer Service Operator</td>
+                                <td>12 Oct 1982</td>
+                                <td><span class="label label-success">Active</span></td>
+                                <td class="text-center">
+                                    <ul class="icons-list">
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                <i class="icon-menu9"></i>
+                                            </a>
+
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <li><a href="#"><i class="icon-file-pdf"></i> Export to .pdf</a></li>
+                                                <li><a href="#"><i class="icon-file-excel"></i> Export to .csv</a></li>
+                                                <li><a href="#"><i class="icon-file-word"></i> Export to .doc</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr role="row" class="odd">
+                                <td class="sorting_1">Delma</td>
+                                <td>Bonds</td>
+                                <td>Lead Brand Manager</td>
+                                <td>21 Dec 1968</td>
+                                <td><span class="label label-info">Pending</span></td>
+                                <td class="text-center">
+                                    <ul class="icons-list">
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                <i class="icon-menu9"></i>
+                                            </a>
+
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <li><a href="#"><i class="icon-file-pdf"></i> Export to .pdf</a></li>
+                                                <li><a href="#"><i class="icon-file-excel"></i> Export to .csv</a></li>
+                                                <li><a href="#"><i class="icon-file-word"></i> Export to .doc</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr role="row" class="even">
+                                <td class="sorting_1">Jackelyn</td>
+                                <td>Weible</td>
+                                <td><a href="#">Airline Transport Pilot</a></td>
+                                <td>3 Oct 1981</td>
+                                <td><span class="label label-default">Inactive</span></td>
+                                <td class="text-center">
+                                    <ul class="icons-list">
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                <i class="icon-menu9"></i>
+                                            </a>
+
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <li><a href="#"><i class="icon-file-pdf"></i> Export to .pdf</a></li>
+                                                <li><a href="#"><i class="icon-file-excel"></i> Export to .csv</a></li>
+                                                <li><a href="#"><i class="icon-file-word"></i> Export to .doc</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr role="row" class="odd">
+                                <td class="sorting_1">Kennedy</td>
+                                <td>Haley</td>
+                                <td>Senior Marketing Designer</td>
+                                <td>18 Dec 1960</td>
+                                <td><span class="label label-success">Active</span></td>
+                                <td class="text-center">
+                                    <ul class="icons-list">
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                <i class="icon-menu9"></i>
+                                            </a>
+
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <li><a href="#"><i class="icon-file-pdf"></i> Export to .pdf</a></li>
+                                                <li><a href="#"><i class="icon-file-excel"></i> Export to .csv</a></li>
+                                                <li><a href="#"><i class="icon-file-word"></i> Export to .doc</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr role="row" class="even">
+                                <td class="sorting_1">Lizzee</td>
+                                <td><a href="#">Goodlow</a></td>
+                                <td>Technical Services Librarian</td>
+                                <td>1 Nov 1961</td>
+                                <td><span class="label label-danger">Suspended</span></td>
+                                <td class="text-center">
+                                    <ul class="icons-list">
+                                        <li class="dropdown dropup">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                <i class="icon-menu9"></i>
+                                            </a>
+
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <li><a href="#"><i class="icon-file-pdf"></i> Export to .pdf</a></li>
+                                                <li><a href="#"><i class="icon-file-excel"></i> Export to .csv</a></li>
+                                                <li><a href="#"><i class="icon-file-word"></i> Export to .doc</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr role="row" class="odd">
+                                <td class="sorting_1">Marth</td>
+                                <td><a href="#">Enright</a></td>
+                                <td>Traffic Court Referee</td>
+                                <td>22 Jun 1972</td>
+                                <td><span class="label label-success">Active</span></td>
+                                <td class="text-center">
+                                    <ul class="icons-list">
+                                        <li class="dropdown dropup">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                <i class="icon-menu9"></i>
+                                            </a>
+
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <li><a href="#"><i class="icon-file-pdf"></i> Export to .pdf</a></li>
+                                                <li><a href="#"><i class="icon-file-excel"></i> Export to .csv</a></li>
+                                                <li><a href="#"><i class="icon-file-word"></i> Export to .doc</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr role="row" class="even">
+                                <td class="sorting_1">Maxine</td>
+                                <td><a href="#">Woldt</a></td>
+                                <td><a href="#">Business Services Sales Representative</a></td>
+                                <td>17 Oct 1987</td>
+                                <td><span class="label label-info">Pending</span></td>
+                                <td class="text-center">
+                                    <ul class="icons-list">
+                                        <li class="dropdown dropup">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                <i class="icon-menu9"></i>
+                                            </a>
+
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <li><a href="#"><i class="icon-file-pdf"></i> Export to .pdf</a></li>
+                                                <li><a href="#"><i class="icon-file-excel"></i> Export to .csv</a></li>
+                                                <li><a href="#"><i class="icon-file-word"></i> Export to .doc</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div><div class="datatable-footer"><div class="dataTables_info" id="DataTables_Table_2_info" role="status" aria-live="polite">Showing 1 to 10 of 15 entries</div><div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_2_paginate"><a class="paginate_button previous disabled" aria-controls="DataTables_Table_2" data-dt-idx="0" tabindex="0" id="DataTables_Table_2_previous">←</a><span><a class="paginate_button current" aria-controls="DataTables_Table_2" data-dt-idx="1" tabindex="0">1</a><a class="paginate_button " aria-controls="DataTables_Table_2" data-dt-idx="2" tabindex="0">2</a></span><a class="paginate_button next" aria-controls="DataTables_Table_2" data-dt-idx="3" tabindex="0" id="DataTables_Table_2_next">→</a></div></div>
+            </div>
+        </div>
+        <!-- /state saving -->
+        <!-- Scrollable datatable -->
+        <div class="panel panel-flat">
+            <div class="panel-heading">
+                <h5 class="panel-title">Scrollable datatable<a class="heading-elements-toggle"><i class="icon-more"></i></a></h5>
+                <div class="heading-elements">
+                    <ul class="icons-list">
+                        <li><a data-action="collapse"></a></li>
+                        <li><a data-action="reload"></a></li>
+                        <li><a data-action="close"></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="panel-body">
+                This example shows the DataTables table body <code>scrolling</code> in the <code>vertical</code> direction. This can generally be seen as an alternative method to pagination for displaying a large table in a fairly small vertical area, and as such pagination has been disabled here. Note that this is not mandatory, it will work just fine with pagination enabled as well!.
+            </div>
+
+            <div id="DataTables_Table_3_wrapper" class="dataTables_wrapper no-footer">
+                <div class="datatable-header"><div id="DataTables_Table_3_filter" class="dataTables_filter"><label><span>Filter:</span> <input type="search" class="" placeholder="Type to filter..." aria-controls="DataTables_Table_3"></label></div><div class="dataTables_length" id="DataTables_Table_3_length"><label><span>Show:</span> <select name="DataTables_Table_3_length" aria-controls="DataTables_Table_3" class="select2-hidden-accessible" tabindex="-1" aria-hidden="true"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: auto;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-DataTables_Table_3_length-xo-container"><span class="select2-selection__rendered" id="select2-DataTables_Table_3_length-xo-container" title="10">10</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span></label></div></div><div class="datatable-scroll">
+                    <div class="dataTables_scroll">
+                        <div class="dataTables_scrollHead" style="overflow: hidden; position: relative; border: 0px; width: 100%;">
+                            <div class="dataTables_scrollHeadInner" style="box-sizing: content-box; width: 908px; padding-right: 15px;">
+                                <table class="table datatable-scroll-y dataTable no-footer" width="100%" role="grid" style="margin-left: 0px; width: 908px;">
+                                    <thead>
+                                        <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_3" rowspan="1" colspan="1" style="width: 137px;" aria-sort="ascending" aria-label="First Name: activate to sort column descending">First Name</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_3" rowspan="1" colspan="1" style="width: 136px;" aria-label="Last Name: activate to sort column ascending">Last Name</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_3" rowspan="1" colspan="1" style="width: 297px;" aria-label="Job Title: activate to sort column ascending">Job Title</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_3" rowspan="1" colspan="1" style="width: 125px;" aria-label="DOB: activate to sort column ascending">DOB</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_3" rowspan="1" colspan="1" style="width: 121px;" aria-label="Status: activate to sort column ascending">Status</th><th class="text-center sorting_disabled" rowspan="1" colspan="1" style="width: 93px;" aria-label="Actions">Actions</th></tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div><div class="dataTables_scrollBody" style="position: relative; overflow: auto; height: 300px; width: 100%;">
+                            <table class="table datatable-scroll-y dataTable no-footer" width="100%" id="DataTables_Table_3" role="grid" aria-describedby="DataTables_Table_3_info" style="width: 100%;">
+                                <thead>
+                                    <tr role="row" style="height: 0px;"><th class="sorting" aria-controls="DataTables_Table_3" rowspan="1" colspan="1" style="width: 137px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;"><div class="dataTables_sizing" style="height:0;overflow:hidden;">First Name</div></th><th class="sorting" aria-controls="DataTables_Table_3" rowspan="1" colspan="1" style="width: 136px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;"><div class="dataTables_sizing" style="height:0;overflow:hidden;">Last Name</div></th><th class="sorting" aria-controls="DataTables_Table_3" rowspan="1" colspan="1" style="width: 297px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;"><div class="dataTables_sizing" style="height:0;overflow:hidden;">Job Title</div></th><th class="sorting" aria-controls="DataTables_Table_3" rowspan="1" colspan="1" style="width: 125px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;"><div class="dataTables_sizing" style="height:0;overflow:hidden;">DOB</div></th><th class="sorting" aria-controls="DataTables_Table_3" rowspan="1" colspan="1" style="width: 121px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;"><div class="dataTables_sizing" style="height:0;overflow:hidden;">Status</div></th><th class="text-center sorting_disabled" rowspan="1" colspan="1" style="width: 93px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;"><div class="dataTables_sizing" style="height:0;overflow:hidden;">Actions</div></th></tr>
+                                </thead>
+
+                                <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    <tr role="row" class="odd">
+                                        <td class="sorting_1">Aura</td>
+                                        <td>Hard</td>
+                                        <td>Business Services Sales Representative</td>
+                                        <td>19 Apr 1969</td>
+                                        <td><span class="label label-danger">Suspended</span></td>
+                                        <td class="text-center">
+                                            <ul class="icons-list">
+                                                <li class="dropdown">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                        <i class="icon-menu9"></i>
+                                                    </a>
+
+                                                    <ul class="dropdown-menu dropdown-menu-right">
+                                                        <li><a href="#"><i class="icon-file-pdf"></i> Export to .pdf</a></li>
+                                                        <li><a href="#"><i class="icon-file-excel"></i> Export to .csv</a></li>
+                                                        <li><a href="#"><i class="icon-file-word"></i> Export to .doc</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr role="row" class="even">
+                                        <td class="sorting_1">Chantal</td>
+                                        <td><a href="#">Nailor</a></td>
+                                        <td>Technical Services Librarian</td>
+                                        <td>10 Jan 1980</td>
+                                        <td><span class="label label-default">Inactive</span></td>
+                                        <td class="text-center">
+                                            <ul class="icons-list">
+                                                <li class="dropdown">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                        <i class="icon-menu9"></i>
+                                                    </a>
+
+                                                    <ul class="dropdown-menu dropdown-menu-right">
+                                                        <li><a href="#"><i class="icon-file-pdf"></i> Export to .pdf</a></li>
+                                                        <li><a href="#"><i class="icon-file-excel"></i> Export to .csv</a></li>
+                                                        <li><a href="#"><i class="icon-file-word"></i> Export to .doc</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr role="row" class="odd">
+                                        <td class="sorting_1">Cicely</td>
+                                        <td>Sigler</td>
+                                        <td><a href="#">Senior Research Officer</a></td>
+                                        <td>15 Mar 1960</td>
+                                        <td><span class="label label-info">Pending</span></td>
+                                        <td class="text-center">
+                                            <ul class="icons-list">
+                                                <li class="dropdown">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                        <i class="icon-menu9"></i>
+                                                    </a>
+
+                                                    <ul class="dropdown-menu dropdown-menu-right">
+                                                        <li><a href="#"><i class="icon-file-pdf"></i> Export to .pdf</a></li>
+                                                        <li><a href="#"><i class="icon-file-excel"></i> Export to .csv</a></li>
+                                                        <li><a href="#"><i class="icon-file-word"></i> Export to .doc</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr role="row" class="even">
+                                        <td class="sorting_1">Coy</td>
+                                        <td>Wollard</td>
+                                        <td>Customer Service Operator</td>
+                                        <td>12 Oct 1982</td>
+                                        <td><span class="label label-success">Active</span></td>
+                                        <td class="text-center">
+                                            <ul class="icons-list">
+                                                <li class="dropdown">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                        <i class="icon-menu9"></i>
+                                                    </a>
+
+                                                    <ul class="dropdown-menu dropdown-menu-right">
+                                                        <li><a href="#"><i class="icon-file-pdf"></i> Export to .pdf</a></li>
+                                                        <li><a href="#"><i class="icon-file-excel"></i> Export to .csv</a></li>
+                                                        <li><a href="#"><i class="icon-file-word"></i> Export to .doc</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr role="row" class="odd">
+                                        <td class="sorting_1">Delma</td>
+                                        <td>Bonds</td>
+                                        <td>Lead Brand Manager</td>
+                                        <td>21 Dec 1968</td>
+                                        <td><span class="label label-info">Pending</span></td>
+                                        <td class="text-center">
+                                            <ul class="icons-list">
+                                                <li class="dropdown">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                        <i class="icon-menu9"></i>
+                                                    </a>
+
+                                                    <ul class="dropdown-menu dropdown-menu-right">
+                                                        <li><a href="#"><i class="icon-file-pdf"></i> Export to .pdf</a></li>
+                                                        <li><a href="#"><i class="icon-file-excel"></i> Export to .csv</a></li>
+                                                        <li><a href="#"><i class="icon-file-word"></i> Export to .doc</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr role="row" class="even">
+                                        <td class="sorting_1">Jackelyn</td>
+                                        <td>Weible</td>
+                                        <td><a href="#">Airline Transport Pilot</a></td>
+                                        <td>3 Oct 1981</td>
+                                        <td><span class="label label-default">Inactive</span></td>
+                                        <td class="text-center">
+                                            <ul class="icons-list">
+                                                <li class="dropdown">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                        <i class="icon-menu9"></i>
+                                                    </a>
+
+                                                    <ul class="dropdown-menu dropdown-menu-right">
+                                                        <li><a href="#"><i class="icon-file-pdf"></i> Export to .pdf</a></li>
+                                                        <li><a href="#"><i class="icon-file-excel"></i> Export to .csv</a></li>
+                                                        <li><a href="#"><i class="icon-file-word"></i> Export to .doc</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr role="row" class="odd">
+                                        <td class="sorting_1">Kennedy</td>
+                                        <td>Haley</td>
+                                        <td>Senior Marketing Designer</td>
+                                        <td>18 Dec 1960</td>
+                                        <td><span class="label label-success">Active</span></td>
+                                        <td class="text-center">
+                                            <ul class="icons-list">
+                                                <li class="dropdown">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                        <i class="icon-menu9"></i>
+                                                    </a>
+
+                                                    <ul class="dropdown-menu dropdown-menu-right">
+                                                        <li><a href="#"><i class="icon-file-pdf"></i> Export to .pdf</a></li>
+                                                        <li><a href="#"><i class="icon-file-excel"></i> Export to .csv</a></li>
+                                                        <li><a href="#"><i class="icon-file-word"></i> Export to .doc</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr role="row" class="even">
+                                        <td class="sorting_1">Lizzee</td>
+                                        <td><a href="#">Goodlow</a></td>
+                                        <td>Technical Services Librarian</td>
+                                        <td>1 Nov 1961</td>
+                                        <td><span class="label label-danger">Suspended</span></td>
+                                        <td class="text-center">
+                                            <ul class="icons-list">
+                                                <li class="dropdown dropup">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                        <i class="icon-menu9"></i>
+                                                    </a>
+
+                                                    <ul class="dropdown-menu dropdown-menu-right">
+                                                        <li><a href="#"><i class="icon-file-pdf"></i> Export to .pdf</a></li>
+                                                        <li><a href="#"><i class="icon-file-excel"></i> Export to .csv</a></li>
+                                                        <li><a href="#"><i class="icon-file-word"></i> Export to .doc</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr role="row" class="odd">
+                                        <td class="sorting_1">Marth</td>
+                                        <td><a href="#">Enright</a></td>
+                                        <td>Traffic Court Referee</td>
+                                        <td>22 Jun 1972</td>
+                                        <td><span class="label label-success">Active</span></td>
+                                        <td class="text-center">
+                                            <ul class="icons-list">
+                                                <li class="dropdown dropup">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                        <i class="icon-menu9"></i>
+                                                    </a>
+
+                                                    <ul class="dropdown-menu dropdown-menu-right">
+                                                        <li><a href="#"><i class="icon-file-pdf"></i> Export to .pdf</a></li>
+                                                        <li><a href="#"><i class="icon-file-excel"></i> Export to .csv</a></li>
+                                                        <li><a href="#"><i class="icon-file-word"></i> Export to .doc</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr role="row" class="even">
+                                        <td class="sorting_1">Maxine</td>
+                                        <td><a href="#">Woldt</a></td>
+                                        <td><a href="#">Business Services Sales Representative</a></td>
+                                        <td>17 Oct 1987</td>
+                                        <td><span class="label label-info">Pending</span></td>
+                                        <td class="text-center">
+                                            <ul class="icons-list">
+                                                <li class="dropdown dropup">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                        <i class="icon-menu9"></i>
+                                                    </a>
+
+                                                    <ul class="dropdown-menu dropdown-menu-right">
+                                                        <li><a href="#"><i class="icon-file-pdf"></i> Export to .pdf</a></li>
+                                                        <li><a href="#"><i class="icon-file-excel"></i> Export to .csv</a></li>
+                                                        <li><a href="#"><i class="icon-file-word"></i> Export to .doc</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div><div class="datatable-footer"><div class="dataTables_info" id="DataTables_Table_3_info" role="status" aria-live="polite">Showing 1 to 10 of 15 entries</div><div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_3_paginate"><a class="paginate_button previous disabled" aria-controls="DataTables_Table_3" data-dt-idx="0" tabindex="0" id="DataTables_Table_3_previous">←</a><span><a class="paginate_button current" aria-controls="DataTables_Table_3" data-dt-idx="1" tabindex="0">1</a><a class="paginate_button " aria-controls="DataTables_Table_3" data-dt-idx="2" tabindex="0">2</a></span><a class="paginate_button next" aria-controls="DataTables_Table_3" data-dt-idx="3" tabindex="0" id="DataTables_Table_3_next">→</a></div></div>
+            </div>
+        </div>
+        <!-- /scrollable datatable -->
+        <!-- Footer -->
+        <div class="footer text-muted">
+            © 2015. <a href="#">Limitless Web App Kit</a> by <a href="http://themeforest.net/user/Kopyov" target="_blank">Eugene Kopyov</a>
+        </div>
+        <!-- /footer -->
+
+    </div>
+    <!-- /content area -->
+
+</div>
+

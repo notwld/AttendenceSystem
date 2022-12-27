@@ -3,8 +3,7 @@
     ViewBag.Title = "Index";
 }
 
-@using System.Data
-@Model DataTable
+@model IEnumerable<AttendenceSystem.Models.Course>
 
 <div class="content-wrapper">
 
@@ -98,13 +97,13 @@
                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="DOB: activate to sort column ascending">Course Short Name</th>
                         </thead>
                         <tbody>
-                            @foreach (DataRow i in Model.Rows)
+                            @foreach (var obj in Model)
                             {
                                 <tr>
-                                    <td role='row' class="even">@i[0]</td>
-                                    <td role='row' class="odd">@i[1]</td>
-                                    <td role='row' class="even">@i[2]</td>
-                                    <td role='row' class="odd">@i[3]</td>
+                                    <td role='row' class="even">@obj.CourseId</td>
+                                    <td role='row' class="odd">@obj.CourseCode</td>
+                                    <td role='row' class="even">@obj.CourseName</td>
+                                    <td role='row' class="odd">@obj.CourseShortName</td>
                                 </tr>
                             }
                         </tbody>

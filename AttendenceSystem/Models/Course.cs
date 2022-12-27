@@ -17,7 +17,7 @@ namespace AttendenceSystem.Models
 
             public List<Course> Course_GetAll()
             {
-                List<Course> courses = new DAL().ExecuteforReport<Course>("Course_GetAll()", ConnectionString.MySqlConnection());
+                List<Course> courses = new DAL().ExecuteforReport<Course>("Course_GetAll", ConnectionString.MySqlConnection());
                 return courses;
             }
 

@@ -12,37 +12,28 @@
           integrity="sha512-1k7mWiTNoyx2XtmI96o+hdjP8nn0f3Z2N4oF/9ZZRgijyV4omsKOXEnqL1gKQNPy2MTSP9rIEWGcH/CInulptA=="
           crossorigin="anonymous"
           referrerpolicy="no-referrer" />
-
-    <!-- ✅ load jQuery ✅ -->
-    <!-- ✅ load DataTables ✅ -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"
             integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg=="
             crossorigin="anonymous"
             referrerpolicy="no-referrer"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
-    <link href="assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/core.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/components.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/colors.css" rel="stylesheet" type="text/css">
-    <!-- /global stylesheets -->
-    <!-- Core JS files -->
-    <script type="text/javascript" src="assets/js/plugins/loaders/pace.min.js"></script>
-    <script type="text/javascript" src="assets/js/core/libraries/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/js/core/libraries/bootstrap.min.js"></script>
-    <script type="text/javascript" src="assets/js/plugins/loaders/blockui.min.js"></script>
-    <!-- /core JS files -->
-    <!-- Theme JS files -->
-    <script type="text/javascript" src="assets/js/plugins/visualization/d3/d3.min.js"></script>
-    <script type="text/javascript" src="assets/js/plugins/visualization/d3/d3_tooltip.js"></script>
-    <script type="text/javascript" src="assets/js/plugins/forms/styling/switchery.min.js"></script>
-    <script type="text/javascript" src="assets/js/plugins/forms/styling/uniform.min.js"></script>
-    <script type="text/javascript" src="assets/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
-    <script type="text/javascript" src="assets/js/plugins/ui/moment/moment.min.js"></script>
-    <script type="text/javascript" src="assets/js/plugins/pickers/daterangepicker.js"></script>
-
-    <script type="text/javascript" src="assets/js/core/app.js"></script>
-    <script type="text/javascript" src="assets/js/pages/dashboard.js"></script>
+    <link href="~/assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/core.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/components.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/colors.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="~/assets/js/plugins/loaders/pace.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/core/libraries/jquery.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/plugins/loaders/blockui.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/plugins/visualization/d3/d3.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/plugins/visualization/d3/d3_tooltip.js"></script>
+    <script type="text/javascript" src="~/assets/js/plugins/forms/styling/switchery.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/plugins/forms/styling/uniform.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
+    <script type="text/javascript" src="~/assets/js/plugins/ui/moment/moment.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/plugins/pickers/daterangepicker.js"></script>
+    <script type="text/javascript" src="~/assets/js/core/app.js"></script>
+    <script type="text/javascript" src="~/assets/js/pages/dashboard.js"></script>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -50,7 +41,13 @@
     .page-header {
         padding-bottom: 9px;
         margin: 0px !important;
+        border-bottom: 1px solid #eeeeee;padding-bottom: 9px;
+        margin: 0px !important;
         border-bottom: 1px solid #eeeeee;
+    }
+    #DataTables_Table_0_wrapper{
+        margin-bottom:20px;
+        margin-top:20px;
     }
 </style>
 <body class="pace-done" style="padding:0!important;">
@@ -64,7 +61,7 @@
     <!-- Main navbar -->
     <div class="navbar navbar-inverse" style="border-radius:0%!important;margin-bottom:0px!important;">
         <div class="navbar-header">
-            <a class="navbar-brand" href="index.html"><img src="assets/images/logo_light.png" alt=""></a>
+            <a class="navbar-brand" href="index.html"><img src="~/assets/images/logo_light.png" alt=""></a>
 
             <ul class="nav navbar-nav visible-xs-block">
 
@@ -160,17 +157,17 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown language-switch">
                     <a class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="assets/images/flags/gb.png" class="position-left" alt="">
+                        <img src="~/assets/images/flags/gb.png" class="position-left" alt="">
                         English
                         <span class="caret"></span>
                     </a>
 
                     <ul class="dropdown-menu">
-                        <li><a class="deutsch"><img src="assets/images/flags/de.png" alt=""> Deutsch</a></li>
-                        <li><a class="ukrainian"><img src="assets/images/flags/ua.png" alt=""> Українська</a></li>
-                        <li><a class="english"><img src="assets/images/flags/gb.png" alt=""> English</a></li>
-                        <li><a class="espana"><img src="assets/images/flags/es.png" alt=""> España</a></li>
-                        <li><a class="russian"><img src="assets/images/flags/ru.png" alt=""> Русский</a></li>
+                        <li><a class="deutsch"><img src="~/assets/images/flags/de.png" alt=""> Deutsch</a></li>
+                        <li><a class="ukrainian"><img src="~/assets/images/flags/ua.png" alt=""> Українська</a></li>
+                        <li><a class="english"><img src="~/assets/images/flags/gb.png" alt=""> English</a></li>
+                        <li><a class="espana"><img src="~/assets/images/flags/es.png" alt=""> España</a></li>
+                        <li><a class="russian"><img src="~/assets/images/flags/ru.png" alt=""> Русский</a></li>
                     </ul>
                 </li>
 
@@ -192,7 +189,7 @@
                         <ul class="media-list dropdown-content-body">
                             <li class="media">
                                 <div class="media-left">
-                                    <img src="assets/images/placeholder.jpg" class="img-circle img-sm" alt="">
+                                    <img src="~/assets/images/placeholder.jpg" class="img-circle img-sm" alt="">
                                     <span class="badge bg-danger-400 media-badge">5</span>
                                 </div>
 
@@ -208,7 +205,7 @@
 
                             <li class="media">
                                 <div class="media-left">
-                                    <img src="assets/images/placeholder.jpg" class="img-circle img-sm" alt="">
+                                    <img src="~/assets/images/placeholder.jpg" class="img-circle img-sm" alt="">
                                     <span class="badge bg-danger-400 media-badge">4</span>
                                 </div>
 
@@ -223,7 +220,7 @@
                             </li>
 
                             <li class="media">
-                                <div class="media-left"><img src="assets/images/placeholder.jpg" class="img-circle img-sm" alt=""></div>
+                                <div class="media-left"><img src="~/assets/images/placeholder.jpg" class="img-circle img-sm" alt=""></div>
                                 <div class="media-body">
                                     <a href="#" class="media-heading">
                                         <span class="text-semibold">Jeremy Victorino</span>
@@ -235,7 +232,7 @@
                             </li>
 
                             <li class="media">
-                                <div class="media-left"><img src="assets/images/placeholder.jpg" class="img-circle img-sm" alt=""></div>
+                                <div class="media-left"><img src="~/assets/images/placeholder.jpg" class="img-circle img-sm" alt=""></div>
                                 <div class="media-body">
                                     <a href="#" class="media-heading">
                                         <span class="text-semibold">Beatrix Diaz</span>
@@ -247,7 +244,7 @@
                             </li>
 
                             <li class="media">
-                                <div class="media-left"><img src="assets/images/placeholder.jpg" class="img-circle img-sm" alt=""></div>
+                                <div class="media-left"><img src="~/assets/images/placeholder.jpg" class="img-circle img-sm" alt=""></div>
                                 <div class="media-body">
                                     <a href="#" class="media-heading">
                                         <span class="text-semibold">Richard Vango</span>
@@ -267,7 +264,7 @@
 
                 <li class="dropdown dropdown-user">
                     <a class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="assets/images/placeholder.jpg" alt="">
+                        <img src="~/assets/images/placeholder.jpg" alt="">
                         <span>Victoria</span>
                         <i class="caret"></i>
                     </a>
@@ -299,7 +296,7 @@
                     <div class="sidebar-user">
                         <div class="category-content">
                             <div class="media">
-                                <a href="#" class="media-left"><img src="assets/images/placeholder.jpg" class="img-circle img-sm" alt=""></a>
+                                <a href="#" class="media-left"><img src="~/assets/images/placeholder.jpg" class="img-circle img-sm" alt=""></a>
                                 <div class="media-body">
                                     <span class="media-heading text-semibold">Victoria Baker</span>
                                     <div class="text-size-mini text-muted">
@@ -977,9 +974,9 @@
             </div>
             <!-- /main sidebar -->
             <!-- Main content -->
-
-            @RenderBody()
-
+            <div class="content-wrapper">
+                @RenderBody()
+            </div>
             <!-- /main content -->
 
         </div>
@@ -992,13 +989,29 @@
     @*@Scripts.Render("~/bundles/jquery")@*@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-    <script>
-        $.noConflict();
-        $(document).ready(function () {
-            $('.dhuzz').DataTable()
+<script>
+    $.noConflict();
+    $(document).ready(function () {
+        $('.dhuzz').DataTable()
+    });
+    const ConfirmDel = (id) => {
+        document.getElementById('delete_course').onclick = () => {
+            Delete_Course(id);
+        }
+    }
+    const Delete_Course = (id) => {
+        $.ajax({
+            url: '/Course/Delete',
+            type: 'POST',
+            data: { id: id },
+            success: function (data) {
+                $('#row__' + id).remove();
+            },
+            error: function (data) {
+                alert('Error');
+            }
         });
-
-
+    }
     </script>
 </body>
 </html>

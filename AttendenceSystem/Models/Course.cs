@@ -22,14 +22,25 @@ namespace AttendenceSystem.Models
             }
 
             public int Course_Save(Course course)
-        {
+            {
             SqlCommand sc = new SqlCommand("Course_Save", ConnectionString.MySqlConnection());
             sc.CommandType = CommandType.StoredProcedure;
             sc.Parameters.AddWithValue("@ParamTable1", course.CourseCode);
             sc.Parameters.AddWithValue("@ParamTable2", course.CourseName);
             sc.Parameters.AddWithValue("@ParamTable3", course.CourseShortName);
             return sc.ExecuteNonQuery();
-        }
+            }
+
+            public int Course_Delete(int id)
+            {
+            SqlCommand sc = new SqlCommand("Course_Delete", ConnectionString.MySqlConnection());
+            sc.CommandType = CommandType.StoredProcedure;
+            sc.Parameters.AddWithValue("@CourseId", id);
+            return sc.ExecuteNonQuery();
+            }
+
+
+
         
 
     }

@@ -1,8 +1,14 @@
 ﻿
 @{
-    ViewBag.Title = "ASaveEdit";
+    ViewBag.Title = "Add New Course";
 }
-<div class="content-wrapper">
+<div style="
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    margin-top:35px;
+    ">
     <h2>Add New Course</h2>
 
     @using (Html.BeginForm("Save", "Course", FormMethod.Post))
@@ -24,7 +30,7 @@
                 </label>
                 <input type="text" class="form-control" name="CourseShortName" />
             </div>
-            <div class="form-control">
+            <div class="form-group">
                 <button class="btn btn-primary" type="submit">Submit</button>
             </div>
         </div>

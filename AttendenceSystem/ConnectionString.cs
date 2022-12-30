@@ -16,7 +16,8 @@ namespace AttendenceSystem
             {
                 sqlConnection = new SqlConnection();
 
-                sqlConnection.ConnectionString = @"Data Source=CL2-04\SQLEXPRESS; Initial Catalog=InstituteAttendenceSystem;User=sa;Password=UIT12345";
+                //sqlConnection.ConnectionString = @"Data Source=CL2-04\SQLEXPRESS; Initial Cadtalog=InstituteAttendenceSystem;User=sa;Password=UIT12345";
+                sqlConnection.ConnectionString = @"Data Source=DESKTOP-58G7CRO; Initial Catalog=InstituteAttendenceSystem;Integrated Security = True";
                 sqlConnection.Open();
             }
 

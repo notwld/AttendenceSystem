@@ -19,17 +19,29 @@ namespace AttendenceSystem.Controllers
     {
         return View();
     }
-        public ActionResult Save(Course course)
+    public ActionResult Save(Course course)
+    {
+        if(new Course().Course_Save(course) > 0)
         {
-            if(new Course().Course_Save(course) > 0)
-            {
-                return RedirectToAction("Index", "Course");
-            }
-            else
-            {
-                return View();
-            }
+            return RedirectToAction("Index", "Course");
+        }
+        else
+        {
+            return View();
         }
     }
+
+    public ActionResult Delete(int id)
+    {
+        if(new Course().Course_Delete(id) > 0)
+        {
+            return RedirectToAction("Index", "Course");
+        }
+        else
+        {
+            return View();
+        }
+    }
+}
 
 }

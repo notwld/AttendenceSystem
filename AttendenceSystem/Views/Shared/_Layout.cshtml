@@ -993,6 +993,7 @@
     $.noConflict();
     $(document).ready(function () {
         $('.dhuzz').DataTable()
+        $("#delModal").appendTo("body");
     });
     const ConfirmDel = (id) => {
         document.getElementById('delete_course').onclick = () => {

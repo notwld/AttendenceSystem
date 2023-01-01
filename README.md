@@ -18,6 +18,6 @@ or
 ```cmd
   "Data Source=*insert your server name*; Initial Cadtalog=*insert your database name*;User=*insert your username*;Password=*insert your password*;"
 ```
-`Note: If there's an error in initializing a connection to SQLSever, make sure to start sql services and TCP/IP protocol enabled via SQL Server Configration Manager.`<br>
+`Note: If there's an error in initializing a connection to SQLSever, make sure to start sql services and TCP/IP protocol enabled via SQL Server Configration Manager.`<br><br>
 5) Run the application by pressing F5 or by clicking the Start button.
 

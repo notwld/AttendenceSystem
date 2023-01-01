@@ -10,10 +10,8 @@ To get started with this project, follow these steps:
 4) Run the application by pressing F5 or by clicking the Start button.
 
 # Project Structure
-The solution is organized into the following projects:
+The solution is organized into the following projects:<br><br>
 
-MyProject.Web: This is the main web application project that contains all of the ASP.NET MVC code and views.
+MyProject.Web: This is the main web application project that contains all of the ASP.NET MVC code and views.<br>
 MyProject.Data: This project contains code for working with the database, including Entity Framework models and data access code.
 
-# License
-This project is licensed under the MIT License. See the LICENSE file for more details.

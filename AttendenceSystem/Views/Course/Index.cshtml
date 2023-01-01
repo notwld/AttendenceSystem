@@ -97,7 +97,7 @@
                                 <td role='row' class="even">@obj.CourseName</td>
                                 <td role='row' class="odd">@obj.CourseShortName</td>
                                 <td role='row' class="odd">
-                                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#myModal">
+                                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#myModal" onclick="CourseEdit(@obj.CourseId, '@obj.CourseCode', '@obj.CourseName', '@obj.CourseShortName')">
                                         Edit
                                     </button>
                                     | <button type="button" class="btn btn-sm btn-danger" id='delete_btn' data-toggle="modal" data-target="#delModal" onclick="ConfirmDel(@obj.CourseId)">
@@ -117,14 +117,42 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <div class="modal-body">
-
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                            </div>
+                            @using (Html.BeginForm("Edit", "Course", FormMethod.Post))
+                            {
+                                <div class="modal-body">
+                                    <div style="
+                                        display:flex;
+                                        flex-direction:column;
+                                        justify-content:center;
+                                        align-items:center;
+                                        ">
+                                            <input type="text" name="CourseId" hidden id="course_id" />
+                                        <div class="m-20">
+                                            <div class="form-group">
+                                                <label for="CourseCode">
+                                                    CourseCode:
+                                                </label>
+                                                <input type="text" class="form-control" name="CourseCode"  id="course_code" />
+                                            </div><div class="form-group">
+                                                <label for="CourseName">
+                                                    CourseName:
+                                                </label>
+                                                <input type="text" class="form-control" name="CourseName"  id="course_name" />
+                                            </div><div class="form-group">
+                                                <label for="CourseShortName">
+                                                    CourseShortName:
+                                                </label>
+                                                <input type="text" class="form-control" name="CourseShortName"  id="course_short_name" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                </div>
+                            
                         </div>
+                            }
                     </div>
                 </div>
                 <div class="modal fade bd-example-modal-sm" id="delModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">

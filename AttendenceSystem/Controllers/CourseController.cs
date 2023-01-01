@@ -42,6 +42,18 @@ namespace AttendenceSystem.Controllers
             return View();
         }
     }
+
+    public ActionResult Edit(Course course)
+    {
+        if(new Course().Course_Update(course) > 0)
+        {
+            return RedirectToAction("Index", "Course");
+        }
+        else
+        {
+            return View();
+        }
+    }
+    }
 }
 
-}

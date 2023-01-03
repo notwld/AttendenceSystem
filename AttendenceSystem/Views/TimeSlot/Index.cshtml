@@ -1,0 +1,300 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@model IEnumerable<AttendenceSystem.Models.TimeSlot>
+
+<div>
+
+    <!-- Page header -->
+    <div class="page-header page-header-default">
+        <div class="page-header-content">
+            <div class="page-title">
+                <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">Datatables</span> - Basic</h4>
+                <a class="heading-elements-toggle"><i class="icon-more"></i></a>
+            </div>
+
+            <div class="heading-elements">
+                <div class="heading-btn-group">
+                    <a href="#" class="btn btn-link btn-float has-text"><i class="icon-bars-alt text-primary"></i><span>Statistics</span></a>
+                    <a href="#" class="btn btn-link btn-float has-text"><i class="icon-calculator text-primary"></i> <span>Invoices</span></a>
+                    <a href="#" class="btn btn-link btn-float has-text"><i class="icon-calendar5 text-primary"></i> <span>Schedule</span></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="breadcrumb-line">
+            <a class="breadcrumb-elements-toggle"><i class="icon-menu-open"></i></a>
+            <ul class="breadcrumb">
+                <li><a href="index.html"><i class="icon-home2 position-left"></i> Home</a></li>
+                <li><a href="datatable_basic.html">Datatables</a></li>
+                <li class="active">Basic</li>
+            </ul>
+
+            <ul class="breadcrumb-elements">
+                <li><a href="#"><i class="icon-comment-discussion position-left"></i> Support</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="icon-gear position-left"></i>
+                        Settings
+                        <span class="caret"></span>
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="#"><i class="icon-user-lock"></i> Account security</a></li>
+                        <li><a href="#"><i class="icon-statistics"></i> Analytics</a></li>
+                        <li><a href="#"><i class="icon-accessibility"></i> Accessibility</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#"><i class="icon-gear"></i> All settings</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- /page header -->
+    <!-- Content area -->
+    <div class="content">
+
+        <!-- Basic datatable -->
+        <div class="panel panel-flat">
+            <div class="panel-heading">
+                <h5 class="panel-title">Basic datatable<a class="heading-elements-toggle"><i class="icon-more"></i></a></h5>
+                <div class="heading-elements">
+                    <ul class="icons-list">
+                        <li><a data-action="collapse"></a></li>
+                        <li><a data-action="reload"></a></li>
+                        <li><a data-action="close"></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="panel-body">
+                The <code>DataTables</code> is a highly flexible tool, based upon the foundations of progressive enhancement, and will add advanced interaction controls to any HTML table. DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function. Searching, ordering, paging etc goodness will be immediately added to the table, as shown in this example. <strong>Datatables support all available table styling.</strong>
+            </div>
+
+            <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+
+                <div class="row" style="display:flex;justify-content:space-between;align-items:center;">
+                    <h1>TimeSlots</h1>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                        Add New TimeSlot
+                    </button>
+                </div>
+                <table class="table datatable-basic dataTable no-footer dhuzz" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+                    <thead>
+                        <tr role="row">
+                            <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="First Name: activate to sort column descending">TSId
+                            </th>
+                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Last Name: activate to sort column ascending">TSCode</th>
+                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Job Title: activate to sort column ascending">StartTime</th>
+                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="DOB: activate to sort column ascending">EndTime</th>
+                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="DOB: activate to sort column ascending">Status</th>
+                            <th>Actions</th>
+                    </thead>
+                    <tbody>
+                        @foreach (var obj in Model)
+                        {
+                            <tr id="row__@obj.TSId">
+                                <td role='row' class="even">@obj.TSId</td>
+                                <td role='row' class="even">@obj.TSCode</td>
+                                <td role='row' class="odd">@obj.StartTime</td>
+                                <td role='row' class="even">@obj.EndTime</td>
+                                <td role='row' class="odd">@obj.Status</td>
+                                <td role='row' class="odd">
+                                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#edit_modal" onclick="TimeSlotEdit(@obj.TSId,@obj.TSCode,@obj.StartTime,@obj.EndTime,@obj.Status)">
+                                        Edit
+                                    </button>
+                                    <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete_modal" onclick="confirm_delete(@obj.TSId)">
+                                        Delete
+                                    </button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <div>
+                    <!-- Button trigger modal -->
+
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Add New TimeSlot</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                @using (Html.BeginForm("Save", "TimeSlot", FormMethod.Post))
+                                {
+                                    <div class="modal-body">
+                                        <div style="
+                                        display:flex;
+                                        flex-direction:column;
+                                        justify-content:center;
+                                        align-items:center;
+                                        ">
+                                            <input type="text" name="TSId" hidden id="ts_id" />
+                                            <div class="m-20">
+
+                                                <div class="form-group">
+                                                    <label for="TSCode">
+                                                        TSCode:
+                                                    </label>
+                                                    <input type="text" class="form-control" name="TSCode" id="ts_code" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="StartTime">
+                                                        StartTime:
+                                                    </label>
+                                                    <input type="text" class="form-control" name="StartTime" id="start_time" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="EndTime">
+                                                        EndTime:
+                                                    </label>
+                                                    <input type="text" class="form-control" name="EndTime" id="end_time" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="Status">
+                                                        Status:
+                                                    </label>
+                                                    <input type="text" class="form-control" name="Status" id="status" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary" onclick="(e) => { e.preventDefault()}">Save changes</button>
+                                        </div>
+
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        <div class="modal fade bd-example-modal-sm" id="delete_modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-sm">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Delete Course</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Are you sure you want to delete this TimeSlot?
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-danger" id='delete_timeslot' data-dismiss="modal" onclick="Delete_TimeSlot()">Delete</button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="footer text-muted">
+                                © 2015. <a href="#">Limitless Web App Kit</a> by <a href="http://themeforest.net/user/Kopyov" target="_blank">Eugene Kopyov</a>
+                            </div>
+                            <!-- /footer -->
+
+                        </div>
+                        <!-- /content area -->
+                        <!-- Button trigger modal -->
+                        <!-- Modal -->
+                        <div class="modal fade" id="edit_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Edit TimeSlot</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    @using (Html.BeginForm("Edit", "TimeSlot", FormMethod.Post))
+                                    {
+                                        <div class="modal-body">
+                                            <div style="
+                                        display:flex;
+                                        flex-direction:column;
+                                        justify-content:center;
+                                        align-items:center;
+                                        ">
+                                                <input type="text" name="TSId" hidden id="ts_id" />
+                                                <div class="m-20">
+                                                    <div class="form-group">
+                                                        <label for="TSId">
+                                                            TSCode:
+                                                        </label>
+                                                        <input type="text" class="form-control" name="TSCode" id="ts_code" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="StartTime">
+                                                            StartTime:
+                                                        </label>
+                                                        <input type="text" class="form-control" name="StartTime" id="start_time" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="EndTime">
+                                                            EndTime:
+                                                        </label>
+                                                        <input type="text" class="form-control" name="EndTime" id="end_time" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="Status">
+                                                           Status:
+                                                        </label>
+                                                        <input type="text" class="form-control" name="Status" id="status" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary">Save changes</button>
+                                            </div>
+
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                            <div class="modal fade bd-example-modal-sm" id="delModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-sm">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLongTitle">Delete Course</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Are you sure you want to delete this course?
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-danger" id='delete_course' data-dismiss="modal" onclick="Delete_Course()">Delete</button>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="footer text-muted">
+                                    © 2015. <a href="#">Limitless Web App Kit</a> by <a href="http://themeforest.net/user/Kopyov" target="_blank">Eugene Kopyov</a>
+                                </div>
+                                <!-- /footer -->
+
+                            </div>
+                            <!-- /content area -->
+                            <!-- Button trigger modal -->
+                            <!-- Modal -->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

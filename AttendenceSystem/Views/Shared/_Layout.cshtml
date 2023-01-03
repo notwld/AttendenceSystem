@@ -324,6 +324,7 @@
                                 <li class="navigation-header"><span>Main</span> <i class="icon-menu" title="" data-original-title="Main pages"></i></li>
                                 <li class="active">@Html.ActionLink("Dashboard", "Index", "Home")</li>
                                 <li>@Html.ActionLink("Courses", "Index", "Course")</li>
+                                <li>@Html.ActionLink("TimeSlot", "Index", "TimeSlot")</li>
                                 <li>
                                     <a href="#" class="has-ul"><i class="icon-stack2"></i> <span>Page layouts</span></a>
                                     <ul class="hidden-ul">
@@ -994,10 +995,17 @@
     $(document).ready(function () {
         $('.dhuzz').DataTable()
         $("#delModal").appendTo("body");
+        $("#delete_modal").appendTo("body");
+        $("#edit_modal").appendTo("body");
     });
     const ConfirmDel = (id) => {
         document.getElementById('delete_course').onclick = () => {
             Delete_Course(id);
+        }
+    }
+    const confirm_delete = (id) => {
+        document.getElementById('delete_timeslot').onclick = () => {
+            Delete_TimeSlot(id);
         }
     }
     const Delete_Course = (id) => {
@@ -1013,12 +1021,34 @@
             }
         });
     }
+    const Delete_TimeSlot = (id) => {
+        $.ajax({
+            url: '/TimeSlot/Delete',
+            type: 'POST',
+            data: { id: id },
+            success: function (data) {
+                $('#row__' + id).remove();
+            },
+            error: function (data) {
+                alert('Error');
+            }
+        });
+    }
+
     const CourseEdit = (course_id, course_code, course_name, course_short_name) => {
         document.getElementById("course_id").value = course_id
         document.getElementById("course_code").value = course_code
         document.getElementById("course_name").value = course_name
         document.getElementById("course_short_name").value = course_short_name
     }
+    const TimeSlotEdit = (tsid, tscode, starttime,endtime,status) => {
+        document.getElementById("ts_id").value = tsid
+        document.getElementById("ts_code").value = tscode
+        document.getElementById("start_time").value = starttime
+        document.getElementById("end_time").value = endtime
+        document.getElementById("status").value = status
+    }
+
     </script>
 </body>
 </html>

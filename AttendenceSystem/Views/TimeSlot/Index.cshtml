@@ -102,9 +102,9 @@
                                 <td role='row' class="even">@obj.EndTime</td>
                                 <td role='row' class="odd">@obj.Status</td>
                                 <td role='row' class="odd">
-                                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#edit_modal" onclick="TimeSlotEdit(@obj.TSId,@obj.TSCode,@obj.StartTime,@obj.EndTime,@obj.Status)">
+                                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#edit_modal" onclick="TimeSlotEdit(@obj.TSId,'@obj.TSCode','@obj.StartTime','@obj.EndTime','@obj.Status')">
                                         Edit
-                                    </button>
+                                    </button>    
                                     <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete_modal" onclick="confirm_delete(@obj.TSId)">
                                         Delete
                                     </button>
@@ -136,32 +136,32 @@
                                         justify-content:center;
                                         align-items:center;
                                         ">
-                                            <input type="text" name="TSId" hidden id="ts_id" />
+                                            <input type="text" name="TSId" hidden />
                                             <div class="m-20">
 
                                                 <div class="form-group">
                                                     <label for="TSCode">
                                                         TSCode:
                                                     </label>
-                                                    <input type="text" class="form-control" name="TSCode" id="ts_code" />
+                                                    <input type="text" class="form-control" name="TSCode" />
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="StartTime">
                                                         StartTime:
                                                     </label>
-                                                    <input type="text" class="form-control" name="StartTime" id="start_time" />
+                                                    <input type="text" class="form-control" name="StartTime" />
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="EndTime">
                                                         EndTime:
                                                     </label>
-                                                    <input type="text" class="form-control" name="EndTime" id="end_time" />
+                                                    <input type="text" class="form-control" name="EndTime" />
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="Status">
                                                         Status:
                                                     </label>
-                                                    <input type="text" class="form-control" name="Status" id="status" />
+                                                    <input type="text" class="form-control" name="Status"/>
                                                 </div>
                                             </div>
                                         </div>

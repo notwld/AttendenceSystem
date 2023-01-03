@@ -1041,7 +1041,8 @@
         document.getElementById("course_name").value = course_name
         document.getElementById("course_short_name").value = course_short_name
     }
-    const TimeSlotEdit = (tsid, tscode, starttime,endtime,status) => {
+    const TimeSlotEdit = (tsid, tscode, starttime, endtime, status) => {
+        console.log(tsid, tscode, starttime, endtime, status)
         document.getElementById("ts_id").value = tsid
         document.getElementById("ts_code").value = tscode
         document.getElementById("start_time").value = starttime

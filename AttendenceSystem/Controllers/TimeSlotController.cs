@@ -16,6 +16,7 @@ namespace AttendenceSystem.Controllers
         }
         public ActionResult Save(TimeSlot timeSlot)
         {
+            ViewBag.TSId = new SelectList(new TimeSlot().TimeSlot_GetAll(), "TSId", "TSId");
             if (new TimeSlot().TimeSlot_Save(timeSlot) > 0)
             {
                 return RedirectToAction("Index", "TimeSlot");

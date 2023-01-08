@@ -998,32 +998,16 @@
         $("#delete_modal").appendTo("body");
         $("#edit_modal").appendTo("body");
     });
-    const ConfirmDel = (id) => {
-        document.getElementById('delete_course').onclick = () => {
-            Delete_Course(id);
+
+    const confirm_delete = (url,id,tagname) => {
+        document.getElementById(tagname).onclick = () => {
+            Delete(url,id);
         }
     }
-    const confirm_delete = (id) => {
-        document.getElementById('delete_timeslot').onclick = () => {
-            Delete_TimeSlot(id);
-        }
-    }
-    const Delete_Course = (id) => {
+
+    const Delete = (url,id) => {
         $.ajax({
-            url: '/Course/Delete',
-            type: 'POST',
-            data: { id: id },
-            success: function (data) {
-                $('#row__' + id).remove();
-            },
-            error: function (data) {
-                alert('Error');
-            }
-        });
-    }
-    const Delete_TimeSlot = (id) => {
-        $.ajax({
-            url: '/TimeSlot/Delete',
+            url: url,
             type: 'POST',
             data: { id: id },
             success: function (data) {

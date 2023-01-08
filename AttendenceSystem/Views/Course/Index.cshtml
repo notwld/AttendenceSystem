@@ -100,7 +100,7 @@
                                     <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#myModal" onclick="CourseEdit(@obj.CourseId, '@obj.CourseCode', '@obj.CourseName', '@obj.CourseShortName')">
                                         Edit
                                     </button>
-                                    | <button type="button" class="btn btn-sm btn-danger" id='delete_btn' data-toggle="modal" data-target="#delModal" onclick="ConfirmDel(@obj.CourseId)">
+                                    | <button type="button" class="btn btn-sm btn-danger" id='delete_btn' data-toggle="modal" data-target="#delModal" onclick="confirm_delete('/Course/Delete',@obj.CourseId,'delete_course')">
                                         Delete
                                     </button>
                                 </td>
